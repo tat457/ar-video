@@ -5,9 +5,19 @@
   <body>
     <a-scene embedded arjs>
   <a-marker preset="hiro">
-    <a-video src="video.mp4" width="4" height="2.25" position="0 0 0" autoplay muted playsinline></a-video>
-  </a-marker>
+  <a-video id="myVideo" src="video.mp4" width="4" height="2.25" position="0 0 0" autoplay muted playsinline></a-video>
+</a-marker>
+
+<script>
+  const videoEl = document.querySelector('#myVideo');
+  document.body.addEventListener('click', () => {
+    if(videoEl.paused){
+      videoEl.play();
+    }
+  });
+</script>
   <a-entity camera></a-entity>
 </a-scene>
   </body>
 </html>
+
